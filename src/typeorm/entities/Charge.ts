@@ -1,6 +1,5 @@
 import { Column, Entity, JoinColumn, PrimaryGeneratedColumn } from "typeorm";
 
-
 @Entity("charge")
 class Charge {
     

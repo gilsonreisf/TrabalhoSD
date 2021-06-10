@@ -1,9 +1,14 @@
 import { Request, Response} from "express";
-import { getRepository } from "typeorm";
-import { User } from "../models/User";
+import { container } from "tsyringe";
 
-class UserController {
+import CreateUserService from "../services/Users/CreateUserService";
+
+
+export default class UserController {
     async create(request: Request, response: Response) {
+        
+        const createUser = container.resolve(CreateUserService);
+
         const { 
             nome, 
             banco, 
@@ -14,10 +19,8 @@ class UserController {
             ip_adress, 
             saldo_conta
         } = request.body;
-
-        const userRepository = getRepository(User);
-
-        const user = userRepository.create({
+        
+        const user = await createUser.execute({
             nome, 
             banco, 
             conta_bancaria, 
@@ -28,9 +31,11 @@ class UserController {
             saldo_conta
         })
 
-        await userRepository.save(user);
+        delete user.pin;
 
-        return response.send();
+        return response
+            .status(200)
+            .json({ message: "Usuário cadastrado com sucesso", user });
     }
 }
 

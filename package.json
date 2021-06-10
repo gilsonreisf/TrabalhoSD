@@ -8,6 +8,9 @@
     "typeorm": "ts-node-dev node_modules/typeorm/cli.js"
   },
   "dependencies": {
+    "@types/bcryptjs": "^2.4.2",
+    "bcrypt": "^5.0.1",
+    "bcryptjs": "^2.4.3",
     "docker-compose": "^0.23.12",
     "express": "^4.17.1",
     "pg": "^8.6.0",

@@ -1,13 +1,15 @@
 import 'reflect-metadata'
 import express from 'express';
+
 import "./database";
-import { router } from './routes';
+import routes from "./routes/index";
+
 
 const app = express();
 
 app.use(express.json());
 
-app.use(router); 
+app.use(routes); 
 app.set('trust proxy', true);
 
 app.get("/users",(req,res)=>{
