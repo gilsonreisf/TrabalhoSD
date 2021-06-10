@@ -9,7 +9,7 @@ export class CreateUsers1623291680525 implements MigrationInterface {
                 columns: [
                     {
                         name: "id",
-                        type: "uuid",
+                        type: "varchar",
                         isPrimary: true
                     },
                     {
@@ -36,10 +36,7 @@ export class CreateUsers1623291680525 implements MigrationInterface {
                         name: "pin",
                         type: "varchar"
                     },
-                    {
-                        name: "ip_adress",
-                        type: "varchar"
-                    },
+               
                     {
                         name: "saldo_conta",
                         type: "varchar"
