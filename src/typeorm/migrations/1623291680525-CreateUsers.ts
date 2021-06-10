@@ -47,7 +47,8 @@ export class CreateUsers1623291680525 implements MigrationInterface {
                     {
                         name: "ip_adress",
                         type: "varchar",
-                        isNullable: false,
+                        isNullable: true,
+                     
                     },
            
                     {

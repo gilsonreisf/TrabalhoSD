@@ -35,6 +35,12 @@ import User from "../entities/User";
       return user;
     }
 
+    public async findByIp(ip: string): Promise<User | undefined> {
+      const findUser = await this.ormRepository.findOne({
+        where: { ip_adress:ip },
+      });
+      return findUser;
+    }
   
     public async update(
       user: User,

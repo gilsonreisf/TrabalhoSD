@@ -11,15 +11,16 @@ export class CreateCharge1623336641568 implements MigrationInterface {
                         name: "id",
                         type: "int",
                         generationStrategy:"increment",
+                        isGenerated:true,
                         isPrimary: true
                     },
                     {
-                        name:"id_host_user",
-                        type: "int",
+                        name:"ip_host_user",
+                        type: "varchar",
                     },
                     {
-                        name:"id_charged_user",
-                        type: "int",
+                        name:"ip_charged_user",
+                        type: "varchar",
                     },
                     {
                         name:"valor",
@@ -31,21 +32,6 @@ export class CreateCharge1623336641568 implements MigrationInterface {
         );
 
 
-           await queryRunner.createForeignKeys("charges", [
-      new TableForeignKey({
-        columnNames: ["id_host_user"],
-        referencedTableName: "users",
-        referencedColumnNames: ["id"],
-        onDelete: "SET NULL",
-      }),
-      new TableForeignKey({
-        columnNames: ["id_charged_user"],
-        referencedTableName: "users",
-        referencedColumnNames: ["id"],
-        onDelete: "SET NULL",
-      }),
-     
-    ]);
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {

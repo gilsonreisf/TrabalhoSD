@@ -12,5 +12,6 @@ import {
     create(data: ICreateUserDTO): Promise<User>;
     save(user: User): Promise<User>;
     update(user: User, update: DeepPartial<User>): Promise<User>;
+    findByIp(ip: string): Promise<User | undefined>;
   }
   

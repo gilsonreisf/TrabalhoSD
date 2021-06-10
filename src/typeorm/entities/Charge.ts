@@ -1,16 +1,17 @@
-import { Column, Entity, JoinColumn, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import User from "./User";
 
-@Entity("charge")
+@Entity("charges")
 class Charge {
     
     @PrimaryGeneratedColumn("increment")
     id: string;
   
-    @JoinColumn({name: "id_host_user"})
-    id_host: string
-
-    @JoinColumn({name: "id_charged_user"})
-    id_charged_user: string
+    @Column({name:'ip_host_user'})
+    ip_host_user: string
+    
+    @Column({name:'ip_charged_user'})
+    ip_charged_user: string
 
     @Column()
     valor: number;
