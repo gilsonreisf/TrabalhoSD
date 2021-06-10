@@ -1,18 +1,19 @@
 export default interface ICreateUserDTO {
+    
     nome: string;
   
     banco: string;
   
-    conta_bancaria: string;
+    conta_bancaria: number;
   
-    agencia: string;
+    agencia: number;
   
-    numero_cartao: string;
+    numero_cartao: number;
   
     pin: string;
   
     ip_adress: string;
   
-    saldo_conta: string;
+    saldo_conta: number;
   
-  }
+}
