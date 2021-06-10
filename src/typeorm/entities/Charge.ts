@@ -3,7 +3,7 @@ import { Column, Entity, JoinColumn, PrimaryGeneratedColumn } from "typeorm";
 @Entity("charge")
 class Charge {
     
-    @PrimaryGeneratedColumn("uuid")
+    @PrimaryGeneratedColumn("increment")
     id: string;
   
     @JoinColumn({name: "id_host_user"})

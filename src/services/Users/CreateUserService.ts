@@ -1,10 +1,12 @@
 import { injectable, inject } from "tsyringe";
 
-import { User } from "../../typeorm/entities/User";
-import IUserRepository from "../../repositories/IUsersRepository";
+import User  from "../../typeorm/entities/User";
 import IHashProvider from "../../providers/HashProvider/models/IHashProvider";
+import IUsersRepository from "../../i_repositories/IUsersRepository";
 
 interface IRequest {
+    ip_adress: string;
+
     nome: string;
   
     banco: string;
@@ -17,8 +19,6 @@ interface IRequest {
   
     pin: string;
   
-    ip_adress: string;
-  
     saldo_conta: number;
   }
 
@@ -26,32 +26,32 @@ interface IRequest {
 export default class CreateUserService {
   constructor(
     @inject("UsersRepository")
-    private usersRepository: IUserRepository,
+    private usersRepository: IUsersRepository,
 
     @inject("HashProvider")
     private hashProvider: IHashProvider,
   ) {}
   public async execute({
+    ip_adress,
     nome,
     banco,
     conta_bancaria,
     agencia,
     numero_cartao,
     pin,
-    ip_adress,
     saldo_conta
   }: IRequest): Promise<User> {
     
     const hashedPassword = await this.hashProvider.generateHash(pin);
 
     const user = await this.usersRepository.create({
+        ip_adress,
         nome,
         banco,
         conta_bancaria,
         agencia,
         numero_cartao,
-        pin,
-        ip_adress,
+        pin: hashedPassword,
         saldo_conta
       });
   

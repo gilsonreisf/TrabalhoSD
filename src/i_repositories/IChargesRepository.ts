@@ -1,9 +1,9 @@
 import {
     DeepPartial,
-    FindManyOptions,
+    
 
   } from "typeorm";
-  import Charge from "../models/Charge";
+  import Charge from "../typeorm/entities/Charge";
   import ICreateChargeDTO from "../dtos/ICreateChargeDTO";
   
   

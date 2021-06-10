@@ -9,21 +9,21 @@ export class CreateCharge1623336641568 implements MigrationInterface {
                 columns: [
                     {
                         name: "id",
-                        type: "varchar",
-                        generationStrategy:"uuid",
+                        type: "int",
+                        generationStrategy:"increment",
                         isPrimary: true
                     },
                     {
                         name:"id_host_user",
-                        type: "varchar",
+                        type: "int",
                     },
                     {
                         name:"id_charged_user",
-                        type: "varchar",
+                        type: "int",
                     },
                     {
                         name:"valor",
-                        type:"real"
+                        type:"float"
                     }
                 ]
             

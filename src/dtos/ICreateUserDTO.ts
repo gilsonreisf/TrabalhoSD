@@ -1,5 +1,7 @@
 export default interface ICreateUserDTO {
     
+    ip_adress: string;
+    
     nome: string;
   
     banco: string;
@@ -11,8 +13,6 @@ export default interface ICreateUserDTO {
     numero_cartao: number;
   
     pin: string;
-  
-    ip_adress: string;
   
     saldo_conta: number;
   

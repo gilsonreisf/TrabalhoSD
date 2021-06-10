@@ -9,37 +9,51 @@ export class CreateUsers1623291680525 implements MigrationInterface {
                 columns: [
                     {
                         name: "id",
-                        type: "varchar",
+                        type: "int",
+                        isGenerated:true,
+                        generationStrategy:'increment',
                         isPrimary: true
                     },
                     {
                         name: "nome",
-                        type: "varchar"
+                        type: "varchar",
+                        isNullable: false,
                     },
                     {
                         name: "banco",
-                        type: "varchar"
+                        type: "varchar",
+                        isNullable: false,
                     },
                     {
                         name: "conta_bancaria",
-                        type: "varchar"
+                        type: "varchar",
+                        isNullable: false,
                     },
                     {
                         name : "agencia",
-                        type: "varchar"
+                        type: "varchar",
+                        isNullable: false,
                     },
                     {
                         name: "numero_cartao",
-                        type: "varchar"
+                        type: "varchar",
+                        isNullable: false,
                     },
                     {
                         name: "pin",
-                        type: "varchar"
+                        type: "varchar",
+                        isNullable: false,
                     },
-               
+                    {
+                        name: "ip_adress",
+                        type: "varchar",
+                        isNullable: false,
+                    },
+           
                     {
                         name: "saldo_conta",
-                        type: "varchar"
+                        type: "float",
+                        isNullable: true,
                     }
                 ]
             })

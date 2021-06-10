@@ -1,16 +1,19 @@
 import { container } from "tsyringe";
 import "../providers";
 
-import ChargeRepository from "../database/repositories/ChargeRepository"
-import UserRepository from "../database/repositories/UserRepository";
+import ChargesRepository from "../typeorm/repositories/ChargesRepository"
+import UsersRepository from "../typeorm/repositories/UsersRepository";
+import IChargesRepository from "../i_repositories/IChargesRepository";
+import IUsersRepository from "../i_repositories/IUsersRepository";
 
-container.registerSingleton<ChargeRepository>(
-  "ChargeRepository",
-  ChargeRepository,
+
+container.registerSingleton<IChargesRepository>(
+  "ChargesRepository",
+  ChargesRepository,
 );
 
-container.registerSingleton<UserRepository>(
-    "UserRepository",
-    UserRepository,
+container.registerSingleton<IUsersRepository>(
+    "UsersRepository",
+     UsersRepository,
   );
 

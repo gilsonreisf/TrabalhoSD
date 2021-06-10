@@ -30,7 +30,7 @@ export default class UserController {
             ip_adress,
             saldo_conta
         })
-
+        // @ts-expect-error
         delete user.pin;
 
         return response

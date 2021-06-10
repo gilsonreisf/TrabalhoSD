@@ -6,11 +6,11 @@ import {
     Repository,
   } from "typeorm";
 import ICreateChargeDTO from "../../dtos/ICreateChargeDTO";
-import Charge  from "../../models/Charge";
-import IChargeRepository from '../../i_repositories/IChargeRepository';
+import Charge  from "../entities/Charge";
+import IChargesRepository from '../../i_repositories/IChargesRepository';
  
   @EntityRepository(Charge)
-  export default class ChargeRepository implements IChargeRepository
+  export default class ChargesRepository implements IChargesRepository
      {
     private ormRepository: Repository<Charge>;
   

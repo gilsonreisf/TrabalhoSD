@@ -1,10 +1,10 @@
-import { Column, Entity, PrimaryColumn } from "typeorm";
-import { v4 as uuid } from "uuid";
+import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+
 
 @Entity("users")
 class User {
     
-    @PrimaryColumn()
+    @PrimaryGeneratedColumn('increment')
     id: string;
 
     @Column()
@@ -31,12 +31,8 @@ class User {
     @Column()
     saldo_conta: number;
 
-    constructor() {
-        if(!this.id) {
-            this.id = uuid()
-        }
-    }
+
 
 }
 
-export { User };
+export default User ;
