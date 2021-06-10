@@ -1,6 +1,6 @@
-export default interface ICreateUserDTO {
-    id_host_user:string;
-    id_charged_user:string;
-    value:number;
+export default interface ICreateChargeDTO {
+    ip_host_user:string;
+    ip_charged_user:string;
+    valor:number;
   }
   
