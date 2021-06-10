@@ -39,7 +39,16 @@ import User from "../entities/User";
       const findUser = await this.ormRepository.findOne({
         where: { ip_adress:ip },
       });
+    
       return findUser;
+    }
+
+    public async getSaldo(ip:string):Promise<number | undefined>{
+      const  findUser = await this.ormRepository.findOne({
+        where: { ip_adress:ip },
+      });
+     const saldo =  findUser?.saldo_conta;
+      return saldo;
     }
   
     public async update(
@@ -51,5 +60,8 @@ import User from "../entities/User";
   
       return mergedData;
     }
+
+ 
+
   }
   
