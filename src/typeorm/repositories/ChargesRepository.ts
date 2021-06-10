@@ -35,14 +35,13 @@ import IChargesRepository from '../../i_repositories/IChargesRepository';
     }
   
   
-    public async findById(id: string | number, options?: FindOneOptions) {
+    public async findById(id: string | number): Promise<Charge | undefined> {
  
-      const academicLeague = await this.ormRepository.findOne(id, options);
+      const charge = await this.ormRepository.findOne(id);
   
-      return academicLeague;
+      return charge;
     }
 
-  
 
   
     public async update(
@@ -54,5 +53,10 @@ import IChargesRepository from '../../i_repositories/IChargesRepository';
   
       return mergedData;
     }
+
+    public async delete(id_charge: string): Promise<void> {
+      await this.ormRepository.delete(id_charge);
+    }
+
   }
   

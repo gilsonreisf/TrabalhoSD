@@ -2,6 +2,7 @@ import { Request, Response} from "express";
 import { container } from "tsyringe";
 
 import CreateUserService from "../services/Users/CreateUserService";
+import UpdateUserSaldoService from "../services/Users/UpdateUserSaldoService";
 
 
 export default class UserController {
@@ -37,6 +38,26 @@ export default class UserController {
             .status(200)
             .json({ message: "Usuário cadastrado com sucesso", user });
     }
+
+
+    public async update(request: Request, response: Response): Promise<Response> {
+        const {
+            valor,
+            ip_host_user,
+            pin
+        } = request.body;
+    
+        const updateSaldo = container.resolve(UpdateUserSaldoService);
+    
+        const user = await updateSaldo.execute({
+          valor,
+          ip_host_user,
+          pin
+        });
+    
+        return response.json(user);
+      }
+
+
 }
 
-export { UserController };

@@ -12,5 +12,7 @@ import {
     create(data: ICreateChargeDTO): Promise<Charge>;
     save(charge: Charge): Promise<Charge>;
     update(charge: Charge, update: DeepPartial<Charge>): Promise<Charge>;
+    findById(id:string|number):Promise<Charge | undefined>
+    delete(id_charge:string):Promise<void>
   }
   
