@@ -5,7 +5,7 @@ import {
     RemoveOptions,
   } from "typeorm";
   import ICreateUserDTO from "../dtos/ICreateUserDTO";
-  import { User } from "../models/User";
+  import { User } from "../typeorm/entities/User";
 
   export default interface IUserRepository {
     create(data: ICreateUserDTO): Promise<User>;
